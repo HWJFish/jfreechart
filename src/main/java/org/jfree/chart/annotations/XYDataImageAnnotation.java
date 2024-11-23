@@ -121,11 +121,9 @@ public class XYDataImageAnnotation extends AbstractXYAnnotation
     public XYDataImageAnnotation(Image image, double x, double y, double w,
             double h, boolean includeInDataBounds) {
 
-        super();
+        super(x,y);
         Args.nullNotPermitted(image, "image");
         this.image = image;
-        this.x = x;
-        this.y = y;
         this.w = w;
         this.h = h;
         this.includeInDataBounds = includeInDataBounds;
@@ -140,23 +138,7 @@ public class XYDataImageAnnotation extends AbstractXYAnnotation
         return this.image;
     }
 
-    /**
-     * Returns the x-coordinate (in data space) for the annotation.
-     *
-     * @return The x-coordinate.
-     */
-    public double getX() {
-        return this.x;
-    }
 
-    /**
-     * Returns the y-coordinate (in data space) for the annotation.
-     *
-     * @return The y-coordinate.
-     */
-    public double getY() {
-        return this.y;
-    }
 
     /**
      * Returns the width (in data space) of the data rectangle into which the

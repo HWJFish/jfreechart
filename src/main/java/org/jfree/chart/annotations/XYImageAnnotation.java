@@ -70,11 +70,6 @@ public class XYImageAnnotation extends AbstractXYAnnotation
     /** For serialization. */
     private static final long serialVersionUID = -4364694501921559958L;
 
-    /** The x-coordinate (in data space). */
-    private double x;
-
-    /** The y-coordinate (in data space). */
-    private double y;
 
     /** The image. */
     private transient Image image;
@@ -116,23 +111,6 @@ public class XYImageAnnotation extends AbstractXYAnnotation
         this.anchor = anchor;
     }
 
-    /**
-     * Returns the x-coordinate (in data space) for the annotation.
-     *
-     * @return The x-coordinate.
-     */
-    public double getX() {
-        return this.x;
-    }
-
-    /**
-     * Returns the y-coordinate (in data space) for the annotation.
-     *
-     * @return The y-coordinate.
-     */
-    public double getY() {
-        return this.y;
-    }
 
     /**
      * Returns the image for the annotation.

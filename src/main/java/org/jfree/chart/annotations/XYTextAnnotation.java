@@ -99,12 +99,6 @@ public class XYTextAnnotation extends AbstractXYAnnotation
     /** The paint. */
     private transient Paint paint;
 
-    /** The x-coordinate. */
-    private double x;
-
-    /** The y-coordinate. */
-    private double y;
-
     /** The text anchor (to be aligned with (x, y)). */
     private TextAnchor textAnchor;
 
@@ -144,13 +138,11 @@ public class XYTextAnnotation extends AbstractXYAnnotation
      * @param y  the y-coordinate (in data space).
      */
     public XYTextAnnotation(String text, double x, double y) {
-        super();
+        super(x,y);
         Args.nullNotPermitted(text, "text");
         this.text = text;
         this.font = DEFAULT_FONT;
         this.paint = DEFAULT_PAINT;
-        this.x = x;
-        this.y = y;
         this.textAnchor = DEFAULT_TEXT_ANCHOR;
         this.rotationAnchor = DEFAULT_ROTATION_ANCHOR;
         this.rotationAngle = DEFAULT_ROTATION_ANGLE;
@@ -311,17 +303,6 @@ public class XYTextAnnotation extends AbstractXYAnnotation
         fireAnnotationChanged();
     }
 
-    /**
-     * Returns the x coordinate for the text anchor point (measured against the
-     * domain axis).
-     *
-     * @return The x coordinate (in data space).
-     *
-     * @see #setX(double)
-     */
-    public double getX() {
-        return this.x;
-    }
 
     /**
      * Sets the x coordinate for the text anchor point (measured against the
@@ -337,17 +318,6 @@ public class XYTextAnnotation extends AbstractXYAnnotation
         fireAnnotationChanged();
     }
 
-    /**
-     * Returns the y coordinate for the text anchor point (measured against the
-     * range axis).
-     *
-     * @return The y coordinate (in data space).
-     *
-     * @see #setY(double)
-     */
-    public double getY() {
-        return this.y;
-    }
 
     /**
      * Sets the y coordinate for the text anchor point (measured against the

@@ -64,12 +64,6 @@ public class XYDrawableAnnotation extends AbstractXYAnnotation
     /** The scaling factor. */
     private double drawScaleFactor;
 
-    /** The x-coordinate. */
-    private double x;
-
-    /** The y-coordinate. */
-    private double y;
-
     /** The width. */
     private double displayWidth;
 
@@ -109,10 +103,8 @@ public class XYDrawableAnnotation extends AbstractXYAnnotation
     public XYDrawableAnnotation(double x, double y, double displayWidth,
             double displayHeight, double drawScaleFactor, Drawable drawable) {
 
-        super();
+        super(x,y);
         Args.nullNotPermitted(drawable, "drawable");
-        this.x = x;
-        this.y = y;
         this.displayWidth = displayWidth;
         this.displayHeight = displayHeight;
         this.drawScaleFactor = drawScaleFactor;

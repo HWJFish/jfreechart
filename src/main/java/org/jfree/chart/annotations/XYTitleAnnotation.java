@@ -76,11 +76,6 @@ public class XYTitleAnnotation extends AbstractXYAnnotation
     /** The coordinate type. */
     private XYCoordinateType coordinateType;
 
-    /** The x-coordinate (in data space). */
-    private double x;
-
-    /** The y-coordinate (in data space). */
-    private double y;
 
     /** The maximum width. */
     private double maxWidth;
@@ -119,12 +114,10 @@ public class XYTitleAnnotation extends AbstractXYAnnotation
      */
     public XYTitleAnnotation(double x, double y, Title title,
             RectangleAnchor anchor) {
-        super();
+        super(x,y);
         Args.nullNotPermitted(title, "title");
         Args.nullNotPermitted(anchor, "anchor");
         this.coordinateType = XYCoordinateType.RELATIVE;
-        this.x = x;
-        this.y = y;
         this.maxWidth = 0.0;
         this.maxHeight = 0.0;
         this.title = title;
@@ -140,23 +133,6 @@ public class XYTitleAnnotation extends AbstractXYAnnotation
         return this.coordinateType;
     }
 
-    /**
-     * Returns the x-coordinate for the annotation.
-     *
-     * @return The x-coordinate.
-     */
-    public double getX() {
-        return this.x;
-    }
-
-    /**
-     * Returns the y-coordinate for the annotation.
-     *
-     * @return The y-coordinate.
-     */
-    public double getY() {
-        return this.y;
-    }
 
     /**
      * Returns the title for the annotation.
