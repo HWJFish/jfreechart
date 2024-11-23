@@ -55,7 +55,7 @@ import org.jfree.chart.api.PublicCloneable;
 /**
  * A general annotation that can be placed on an {@link XYPlot}.
  */
-public class XYDrawableAnnotation extends AbstractXYAnnotation
+public class XYDrawableAnnotation extends AbstractXYAnnotationWithXY
         implements Cloneable, PublicCloneable, Serializable {
 
     /** For serialization. */

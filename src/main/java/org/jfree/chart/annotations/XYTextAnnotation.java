@@ -68,7 +68,7 @@ import org.jfree.chart.internal.SerialUtils;
  * A text annotation that can be placed at a particular (x, y) location on an
  * {@link XYPlot}.
  */
-public class XYTextAnnotation extends AbstractXYAnnotation
+public class XYTextAnnotation extends AbstractXYAnnotationWithXY
         implements Cloneable, PublicCloneable, Serializable {
 
     /** For serialization. */

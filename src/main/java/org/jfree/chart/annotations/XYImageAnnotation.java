@@ -64,7 +64,7 @@ import org.jfree.chart.api.PublicCloneable;
  *
  * TODO:  implement serialization properly (image is not serializable).
  */
-public class XYImageAnnotation extends AbstractXYAnnotation
+public class XYImageAnnotation extends AbstractXYAnnotationWithXY
         implements Cloneable, PublicCloneable, Serializable {
 
     /** For serialization. */
@@ -102,11 +102,9 @@ public class XYImageAnnotation extends AbstractXYAnnotation
      */
     public XYImageAnnotation(double x, double y, Image image,
             RectangleAnchor anchor) {
-        super();
+        super(x,y);
         Args.nullNotPermitted(image, "image");
         Args.nullNotPermitted(anchor, "anchor");
-        this.x = x;
-        this.y = y;
         this.image = image;
         this.anchor = anchor;
     }

@@ -60,15 +60,7 @@ public abstract class AbstractXYAnnotation extends AbstractAnnotation
     /** The URL. */
     private String url;
 
-    /**
-     * The x-coordinate (in data space).
-     */
-    protected double x;
 
-    /**
-     * The y-coordinate (in data space).
-     */
-    protected double y;
 
     /**
      * Creates a new instance that has no tool tip or URL specified.
@@ -79,16 +71,7 @@ public abstract class AbstractXYAnnotation extends AbstractAnnotation
         this.url = null;
     }
 
-    /**
-     * Creates a new instance that has no tool tip or URL specified.
-     */
-    protected AbstractXYAnnotation(double x, double y) {
-        super();
-        this.toolTipText = null;
-        this.url = null;
-        this.x = x;
-        this.y = y;
-    }
+
 
     /**
      * Returns the tool tip text for the annotation.  This will be displayed in
@@ -126,23 +109,6 @@ public abstract class AbstractXYAnnotation extends AbstractAnnotation
         return this.url;
     }
 
-    /**
-     * Returns the x-coordinate (in data space) for the annotation.
-     *
-     * @return The x-coordinate.
-     */
-    public double getX() {
-        return this.x;
-    }
-
-    /**
-     * Returns the y-coordinate (in data space) for the annotation.
-     *
-     * @return The y-coordinate.
-     */
-    public double getY() {
-        return this.y;
-    }
 
     /**
      * Sets the URL for the annotation.

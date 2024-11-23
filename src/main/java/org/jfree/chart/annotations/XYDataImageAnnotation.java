@@ -61,21 +61,11 @@ import org.jfree.data.Range;
  * is not currently serializable, so don't use it if you plan on serializing
  * your chart(s).
  */
-public class XYDataImageAnnotation extends AbstractXYAnnotation
+public class XYDataImageAnnotation extends AbstractXYAnnotationWithXY
         implements Cloneable, PublicCloneable, XYAnnotationBoundsInfo {
 
     /** The image. */
     private transient Image image;
-
-    /**
-     * The x-coordinate (in data space).
-     */
-    private double x;
-
-    /**
-     * The y-coordinate (in data space).
-     */
-    private double y;
 
     /**
      * The image display area width in data coordinates.
