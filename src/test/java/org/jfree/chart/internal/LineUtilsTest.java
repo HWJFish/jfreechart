@@ -46,6 +46,27 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
  */
 public class LineUtilsTest {
 
+    /**
+     * Tests that a line with Double.NaN coordinates is handled gracefully in
+     * the clipLine() method (added in response to bug#223).
+     */
+    @Test
+    public void testClipLineWithNaN() {
+        Rectangle2D rect = new Rectangle2D.Double(1.0, 1.0, 1.0, 1.0);
+        Line2D line = new Line2D.Double(Double.NaN, 2, 3, 4);
+        assertFalse(LineUtils.clipLine(line, rect));
+        assertTrue(lineEquals(line, Double.NaN, 2, 3, 4));
+        line = new Line2D.Double(1, Double.NaN, 3, 4);
+        assertFalse(LineUtils.clipLine(line, rect));
+        assertTrue(lineEquals(line, 1, Double.NaN, 3, 4));
+        line = new Line2D.Double(1, 2, Double.NaN, 4);
+        assertFalse(LineUtils.clipLine(line, rect));
+        assertTrue(lineEquals(line, 1, 2, Double.NaN, 4));
+        line = new Line2D.Double(1, 2, 3, Double.NaN);
+        assertFalse(LineUtils.clipLine(line, rect));
+        assertTrue(lineEquals(line, 1, 2, 3, Double.NaN));
+    }
+
     private boolean lineEquals(Line2D line, double x1, double y1, double x2,
             double y2) {
         boolean result = true;
