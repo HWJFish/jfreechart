@@ -134,8 +134,8 @@ public class XYTextAnnotation extends AbstractXYAnnotationWithXY
      * Java2D space for display).
      *
      * @param text  the text ({@code null} not permitted).
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      */
     public XYTextAnnotation(String text, double x, double y) {
         super(x,y);

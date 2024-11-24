@@ -131,13 +131,14 @@ public class XYPointerAnnotation extends XYTextAnnotation
      * Creates a new label and arrow annotation.
      *
      * @param label  the label ({@code null} permitted).
-     * @param x  the x-coordinate (measured against the chart's domain axis).
-     * @param y  the y-coordinate (measured against the chart's range axis).
-     * @param angle  the angle of the arrow's line (in radians).
+     * @param x  the x-coordinate (measured against the chart's domain axis) should be finite.
+     * @param y  the y-coordinate (measured against the chart's range axis) should be finite.
+     * @param angle  the angle of the arrow's line (in radians) should be finite.
      */
     public XYPointerAnnotation(String label, double x, double y, double angle) {
 
         super(label, x, y);
+        Args.requireFinite(angle, "angle");
         this.angle = angle;
         this.tipRadius = DEFAULT_TIP_RADIUS;
         this.baseRadius = DEFAULT_BASE_RADIUS;

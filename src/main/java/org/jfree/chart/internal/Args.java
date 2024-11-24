@@ -101,4 +101,19 @@ public class Args {
                     + upperBound);
         }
     }
+
+    /**
+     * Check whether the arg is finite
+     *
+     * @throws IllegalArgumentException
+     * @param value Value need to check
+     * @param name name of the parameter
+     */
+    public static void requireFinite(double value, String name) {
+        if (!Double.isFinite(value)) {
+            throw new IllegalArgumentException("Require '" + name + "' ("+ value + ") to be finite.");
+
+        }
+
+    }
 }

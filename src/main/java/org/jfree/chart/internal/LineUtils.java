@@ -45,7 +45,7 @@ import java.awt.geom.Rectangle2D;
 public class LineUtils {
 
     /**
-     * Clips the specified line to the given rectangle.
+     * Clips the specified line to the given rectangle. The line is not changed if return non-finite.
      *
      * @param line  the line ({@code null} not permitted).
      * @param rect  the clipping rectangle ({@code null} not permitted).
@@ -59,6 +59,10 @@ public class LineUtils {
         double y1 = line.getY1();
         double x2 = line.getX2();
         double y2 = line.getY2();
+
+        if (!(Double.isFinite(x1) && Double.isFinite(y1) && Double.isFinite(x2) && Double.isFinite(y2))) {
+            return false;
+        }
 
         double minX = rect.getMinX();
         double maxX = rect.getMaxX();

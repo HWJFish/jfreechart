@@ -69,11 +69,13 @@ public class XYDataImageAnnotation extends AbstractXYAnnotationWithXY
 
     /**
      * The image display area width in data coordinates.
+     * should be finite
      */
     private double w;
 
     /**
      * The image display area height in data coordinates.
+     * should be finite
      */
     private double h;
 
@@ -87,8 +89,8 @@ public class XYDataImageAnnotation extends AbstractXYAnnotationWithXY
      * Creates a new annotation to be displayed within the specified rectangle.
      *
      * @param image  the image ({@code null} not permitted).
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      * @param w  the image display area width.
      * @param h  the image display area height.
      */
@@ -101,8 +103,8 @@ public class XYDataImageAnnotation extends AbstractXYAnnotationWithXY
      * Creates a new annotation to be displayed within the specified rectangle.
      *
      * @param image  the image ({@code null} not permitted).
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      * @param w  the image display area width.
      * @param h  the image display area height.
      * @param includeInDataBounds  a flag that controls whether or not the

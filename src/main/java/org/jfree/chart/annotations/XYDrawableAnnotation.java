@@ -76,8 +76,8 @@ public class XYDrawableAnnotation extends AbstractXYAnnotationWithXY
     /**
      * Creates a new annotation to be displayed within the given area.
      *
-     * @param x  the x-coordinate for the area.
-     * @param y  the y-coordinate for the area.
+     * @param x  the x-coordinate for the area should be finite.
+     * @param y  the y-coordinate for the area should be finite.
      * @param width  the width of the area.
      * @param height  the height of the area.
      * @param drawable  the drawable object ({@code null} not permitted).
@@ -93,11 +93,11 @@ public class XYDrawableAnnotation extends AbstractXYAnnotationWithXY
      * will be drawn at twice the requested display size then scaled down to
      * fit the space.
      *
-     * @param x  the x-coordinate for the area.
-     * @param y  the y-coordinate for the area.
-     * @param displayWidth  the width of the area.
-     * @param displayHeight  the height of the area.
-     * @param drawScaleFactor  the scaling factor for drawing.
+     * @param x  the x-coordinate for the area should be finite.
+     * @param y  the y-coordinate for the area should be finite.
+     * @param displayWidth  the width of the area should be finite.
+     * @param displayHeight  the height of the area should be finite.
+     * @param drawScaleFactor  the scaling factor for drawing should be finite.
      * @param drawable  the drawable object ({@code null} not permitted).
      */
     public XYDrawableAnnotation(double x, double y, double displayWidth,
@@ -105,6 +105,9 @@ public class XYDrawableAnnotation extends AbstractXYAnnotationWithXY
 
         super(x,y);
         Args.nullNotPermitted(drawable, "drawable");
+        Args.requireFinite(displayWidth, "displayWidth");
+        Args.requireFinite(displayHeight, "displayHeight");
+        Args.requireNonNegative(drawScaleFactor, "drawScaleFactor");
         this.displayWidth = displayWidth;
         this.displayHeight = displayHeight;
         this.drawScaleFactor = drawScaleFactor;

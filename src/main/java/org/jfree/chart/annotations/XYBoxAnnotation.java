@@ -49,6 +49,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.internal.Args;
 import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.PlotRenderingInfo;
@@ -93,10 +94,10 @@ public class XYBoxAnnotation extends AbstractXYAnnotation
      * Creates a new annotation (where, by default, the box is drawn
      * with a black outline).
      *
-     * @param x0  the lower x-coordinate of the box (in data space).
-     * @param y0  the lower y-coordinate of the box (in data space).
-     * @param x1  the upper x-coordinate of the box (in data space).
-     * @param y1  the upper y-coordinate of the box (in data space).
+     * @param x0  the lower x-coordinate of the box (in data space) should be finite.
+     * @param y0  the lower y-coordinate of the box (in data space) should be finite.
+     * @param x1  the upper x-coordinate of the box (in data space) should be finite.
+     * @param y1  the upper y-coordinate of the box (in data space) should be finite.
      */
     public XYBoxAnnotation(double x0, double y0, double x1, double y1) {
         this(x0, y0, x1, y1, new BasicStroke(1.0f), Color.BLACK);
@@ -106,10 +107,10 @@ public class XYBoxAnnotation extends AbstractXYAnnotation
      * Creates a new annotation where the box is drawn as an outline using
      * the specified {@code stroke} and {@code outlinePaint}.
      *
-     * @param x0  the lower x-coordinate of the box (in data space).
-     * @param y0  the lower y-coordinate of the box (in data space).
-     * @param x1  the upper x-coordinate of the box (in data space).
-     * @param y1  the upper y-coordinate of the box (in data space).
+     * @param x0  the lower x-coordinate of the box (in data space) should be finite.
+     * @param y0  the lower y-coordinate of the box (in data space) should be finite.
+     * @param x1  the upper x-coordinate of the box (in data space) should be finite.
+     * @param y1  the upper y-coordinate of the box (in data space) should be finite.
      * @param stroke  the shape stroke ({@code null} permitted).
      * @param outlinePaint  the shape color ({@code null} permitted).
      */
@@ -121,10 +122,10 @@ public class XYBoxAnnotation extends AbstractXYAnnotation
     /**
      * Creates a new annotation.
      *
-     * @param x0  the lower x-coordinate of the box (in data space).
-     * @param y0  the lower y-coordinate of the box (in data space).
-     * @param x1  the upper x-coordinate of the box (in data space).
-     * @param y1  the upper y-coordinate of the box (in data space).
+     * @param x0  the lower x-coordinate of the box (in data space) should be finite.
+     * @param y0  the lower y-coordinate of the box (in data space) should be finite.
+     * @param x1  the upper x-coordinate of the box (in data space) should be finite.
+     * @param y1  the upper y-coordinate of the box (in data space) should be finite.
      * @param stroke  the shape stroke ({@code null} permitted).
      * @param outlinePaint  the shape color ({@code null} permitted).
      * @param fillPaint  the paint used to fill the shape ({@code null}
@@ -133,6 +134,10 @@ public class XYBoxAnnotation extends AbstractXYAnnotation
     public XYBoxAnnotation(double x0, double y0, double x1, double y1,
                            Stroke stroke, Paint outlinePaint, Paint fillPaint) {
         super();
+        Args.requireFinite(x0, "x0");
+        Args.requireFinite(y0, "y0");
+        Args.requireFinite(x1, "x1");
+        Args.requireFinite(y1, "y1");
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;

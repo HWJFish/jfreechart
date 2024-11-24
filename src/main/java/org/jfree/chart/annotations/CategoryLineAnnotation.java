@@ -96,9 +96,9 @@ public class CategoryLineAnnotation extends AbstractAnnotation
      * and (category2, value2).
      *
      * @param category1  the category ({@code null} not permitted).
-     * @param value1  the value.
+     * @param value1  the value should be finite.
      * @param category2  the category ({@code null} not permitted).
-     * @param value2  the value.
+     * @param value2  the value should be finite.
      * @param paint  the line color ({@code null} not permitted).
      * @param stroke  the line stroke ({@code null} not permitted).
      */
@@ -110,6 +110,8 @@ public class CategoryLineAnnotation extends AbstractAnnotation
         Args.nullNotPermitted(category2, "category2");
         Args.nullNotPermitted(paint, "paint");
         Args.nullNotPermitted(stroke, "stroke");
+        Args.requireFinite(value1, "value1");
+        Args.requireFinite(value2, "value2");
         this.category1 = category1;
         this.value1 = value1;
         this.category2 = category2;

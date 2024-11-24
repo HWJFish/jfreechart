@@ -107,8 +107,8 @@ public class XYTitleAnnotation extends AbstractXYAnnotationWithXY
      * Creates a new annotation to be displayed at the specified (x, y)
      * location.
      *
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      * @param title  the title ({@code null} not permitted).
      * @param anchor  the title anchor ({@code null} not permitted).
      */

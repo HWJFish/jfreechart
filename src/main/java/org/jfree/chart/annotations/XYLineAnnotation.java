@@ -94,10 +94,10 @@ public class XYLineAnnotation extends AbstractXYAnnotation
      * where the coordinates are measured in data space (that is, against the
      * plot's axes).
      *
-     * @param x1  the x-coordinate for the start of the line.
-     * @param y1  the y-coordinate for the start of the line.
-     * @param x2  the x-coordinate for the end of the line.
-     * @param y2  the y-coordinate for the end of the line.
+     * @param x1  the x-coordinate for the start of the line should be finite.
+     * @param y1  the y-coordinate for the start of the line should be finite.
+     * @param x2  the x-coordinate for the end of the line should be finite.
+     * @param y2  the y-coordinate for the end of the line should be finite.
      */
     public XYLineAnnotation(double x1, double y1, double x2, double y2) {
         this(x1, y1, x2, y2, new BasicStroke(1.0f), Color.BLACK);
@@ -108,10 +108,10 @@ public class XYLineAnnotation extends AbstractXYAnnotation
      * where the coordinates are measured in data space (that is, against the
      * plot's axes).
      *
-     * @param x1  the x-coordinate for the start of the line.
-     * @param y1  the y-coordinate for the start of the line.
-     * @param x2  the x-coordinate for the end of the line.
-     * @param y2  the y-coordinate for the end of the line.
+     * @param x1  the x-coordinate for the start of the line should be finite.
+     * @param y1  the y-coordinate for the start of the line should be finite.
+     * @param x2  the x-coordinate for the end of the line should be finite.
+     * @param y2  the y-coordinate for the end of the line should be finite.
      * @param stroke  the line stroke ({@code null} not permitted).
      * @param paint  the line color ({@code null} not permitted).
      */
@@ -121,6 +121,10 @@ public class XYLineAnnotation extends AbstractXYAnnotation
         super();
         Args.nullNotPermitted(stroke, "stroke");
         Args.nullNotPermitted(paint, "paint");
+        Args.requireFinite(x1, "x1");
+        Args.requireFinite(x2, "x2");
+        Args.requireFinite(y1, "y1");
+        Args.requireFinite(y2, "y2");
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;

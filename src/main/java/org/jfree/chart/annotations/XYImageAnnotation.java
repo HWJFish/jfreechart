@@ -83,8 +83,8 @@ public class XYImageAnnotation extends AbstractXYAnnotationWithXY
      * Creates a new annotation to be displayed at the specified (x, y)
      * location.
      *
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      * @param image  the image ({@code null} not permitted).
      */
     public XYImageAnnotation(double x, double y, Image image) {
@@ -95,8 +95,8 @@ public class XYImageAnnotation extends AbstractXYAnnotationWithXY
      * Creates a new annotation to be displayed at the specified (x, y)
      * location.
      *
-     * @param x  the x-coordinate (in data space).
-     * @param y  the y-coordinate (in data space).
+     * @param x  the x-coordinate (in data space) should be finite.
+     * @param y  the y-coordinate (in data space) should be finite.
      * @param image  the image ({@code null} not permitted).
      * @param anchor  the image anchor ({@code null} not permitted).
      */

@@ -83,6 +83,7 @@ public class CategoryTextAnnotation extends TextAnnotation
                                   double value) {
         super(text);
         Args.nullNotPermitted(category, "category");
+        Args.nullNotPermitted(value, "value");
         this.category = category;
         this.value = value;
         this.categoryAnchor = CategoryAnchor.MIDDLE;
